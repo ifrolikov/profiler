@@ -53,7 +53,7 @@ class Profiler
         return $this->tree[$index]['fullKey'];
     }
     
-    public function __destruct()
+    public function log()
     {
         $log = [];
         $stopTime = microtime(true);
@@ -65,5 +65,11 @@ class Profiler
             ];
         }
         $this->logger->debug(json_encode($log, JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE));
+        $this->tree = [];
+    }
+    
+    public function __destruct()
+    {
+        $this->log();
     }
 }
