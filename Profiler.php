@@ -67,7 +67,7 @@ class Profiler
             $elementStopTime = $element['stop'] ?? $stopTime;
             $log[] = [
                 'key'      => $element['fullKey'],
-                'duration' => round(100 * ($elementStopTime - $element['start']), 3)
+                'duration' => round(1000 * ($elementStopTime - $element['start']), 3)
             ];
         }
         $this->logger->debug(json_encode($log, JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE));
