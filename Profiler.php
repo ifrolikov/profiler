@@ -50,6 +50,11 @@ class Profiler
     {
         $time = microtime(true);
         $index = count($this->tree) - 1;
+        foreach (array_reverse($this->tree, true) as $index => $element) {
+            if (empty($element['stop'])) {
+                break;
+            }
+        }
         $this->tree[$index]['stop'] = $time;
         return $this->tree[$index]['fullKey'];
     }
