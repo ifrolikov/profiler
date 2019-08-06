@@ -15,7 +15,7 @@ class Profiler
      */
     private $logger;
     
-    public static function instance(?LoggerInterface $logger): Profiler
+    public static function instance(LoggerInterface $logger = null): Profiler
     {
         if (empty(static::$instance)) {
             static::$instance = new Profiler($logger);
